@@ -4,12 +4,19 @@ Dockerized website for junk removal, appliance disposal, delivery, cargo service
 
 ## Production Run
 
-Create `.env`:
+Create `.env` on the server. This file is intentionally not committed to git:
 
 ```env
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 DOMAIN=clear-city-dnipro.com,www.clear-city-dnipro.com
 LETSENCRYPT_EMAIL=admin@clear-city-dnipro.com
+```
+
+You can also copy the template:
+
+```bash
+cp .env.example .env
+nano .env
 ```
 
 Start everything:
@@ -38,6 +45,7 @@ Server requirements:
 - DNS `A` records for `@` and `www` point to the server IP.
 - Ports `80` and `443` are open in the firewall.
 - No host Nginx/Apache is already using ports `80` or `443`.
+- `.env` exists on the server and contains the real `TELEGRAM_BOT_TOKEN`.
 
 ## Telegram Bot
 

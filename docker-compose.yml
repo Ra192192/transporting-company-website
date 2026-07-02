@@ -18,7 +18,7 @@ services:
       - nginx-proxy
     environment:
       NGINX_PROXY_CONTAINER: nginx-proxy
-      DEFAULT_EMAIL: ${LETSENCRYPT_EMAIL}
+      DEFAULT_EMAIL: ${LETSENCRYPT_EMAIL:-admin@clear-city-dnipro.com}
     volumes:
       - nginx-certs:/etc/nginx/certs
       - nginx-vhost:/etc/nginx/vhost.d
@@ -50,10 +50,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cleanup_site
       SPRING_DATASOURCE_USERNAME: cleanup_user
       SPRING_DATASOURCE_PASSWORD: cleanup_password
-      VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_HOST: ${DOMAIN:-clear-city-dnipro.com,www.clear-city-dnipro.com}
       VIRTUAL_PORT: 8090
-      LETSENCRYPT_HOST: ${DOMAIN}
-      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      LETSENCRYPT_HOST: ${DOMAIN:-clear-city-dnipro.com,www.clear-city-dnipro.com}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL:-admin@clear-city-dnipro.com}
     expose:
       - "8090"
     restart: unless-stopped
@@ -66,7 +66,7 @@ services:
       cleanup-site:
         condition: service_started
     environment:
-      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?Set TELEGRAM_BOT_TOKEN in .env}
       DATABASE_URL: postgresql://cleanup_user:cleanup_password@postgres:5432/cleanup_site
       POLL_INTERVAL_SECONDS: 5
     restart: unless-stopped
