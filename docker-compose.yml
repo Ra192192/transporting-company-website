@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cleanup_site
+      POSTGRES_USER: cleanup_user
+      POSTGRES_PASSWORD: cleanup_password
+    volumes:
+      - cleanup-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cleanup_user -d cleanup_site"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  cleanup-site:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cleanup_site
+      SPRING_DATASOURCE_USERNAME: cleanup_user
+      SPRING_DATASOURCE_PASSWORD: cleanup_password
+    ports:
+      - "8090:8090"
+    restart: unless-stopped
+
+  telegram-bot:
+    build: ./telegram-bot
+    depends_on:
+      postgres:
+        condition: service_healthy
+      cleanup-site:
+        condition: service_started
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      DATABASE_URL: postgresql://cleanup_user:cleanup_password@postgres:5432/cleanup_site
+      POLL_INTERVAL_SECONDS: 5
+    restart: unless-stopped
+
+volumes:
+  cleanup-postgres-data:
