@@ -1,4 +1,32 @@
 services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy:1.6
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx-certs:/etc/nginx/certs:ro
+      - nginx-vhost:/etc/nginx/vhost.d
+      - nginx-html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: unless-stopped
+
+  acme-companion:
+    image: nginxproxy/acme-companion:2.5
+    depends_on:
+      - nginx-proxy
+    environment:
+      NGINX_PROXY_CONTAINER: nginx-proxy
+      DEFAULT_EMAIL: ${LETSENCRYPT_EMAIL}
+    volumes:
+      - nginx-certs:/etc/nginx/certs
+      - nginx-vhost:/etc/nginx/vhost.d
+      - nginx-html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+
   postgres:
     image: postgres:16-alpine
     environment:
@@ -22,8 +50,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cleanup_site
       SPRING_DATASOURCE_USERNAME: cleanup_user
       SPRING_DATASOURCE_PASSWORD: cleanup_password
-    ports:
-      - "8090:8090"
+      VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 8090
+      LETSENCRYPT_HOST: ${DOMAIN}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+    expose:
+      - "8090"
     restart: unless-stopped
 
   telegram-bot:
@@ -41,3 +73,7 @@ services:
 
 volumes:
   cleanup-postgres-data:
+  nginx-certs:
+  nginx-vhost:
+  nginx-html:
+  acme:

@@ -1,28 +1,45 @@
 # Cleanup Service Website
 
-Simple Dockerized website for junk removal, appliance disposal, delivery, and cargo services.
+Dockerized website for junk removal, appliance disposal, delivery, cargo services, PostgreSQL requests, and Telegram admin notifications.
 
-The contact form saves requests to PostgreSQL. Each request has an id, name, phone, description, and status.
+## Production Run
 
-## Run with Docker
+Create `.env`:
 
-```powershell
-docker compose up --build
+```env
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+DOMAIN=clear-city-dnipro.com,www.clear-city-dnipro.com
+LETSENCRYPT_EMAIL=admin@clear-city-dnipro.com
 ```
 
-Open http://localhost:8090.
+Start everything:
 
-Docker Compose starts two services:
+```bash
+docker compose up --build -d
+```
 
+Docker Compose starts:
+
+- `nginx-proxy` - reverse proxy on ports `80` and `443`
+- `acme-companion` - automatic Let's Encrypt certificates
 - `cleanup-site` - Spring Boot website and API
 - `postgres` - PostgreSQL database with persistent Docker volume
 - `telegram-bot` - Python Telegram bot for admin notifications
 
-Create `.env` before starting Docker Compose:
+After DNS points to the server, open:
 
-```powershell
-TELEGRAM_BOT_TOKEN=your_bot_token_here
+```text
+https://clear-city-dnipro.com
+https://www.clear-city-dnipro.com
 ```
+
+Server requirements:
+
+- DNS `A` records for `@` and `www` point to the server IP.
+- Ports `80` and `443` are open in the firewall.
+- No host Nginx/Apache is already using ports `80` or `443`.
+
+## Telegram Bot
 
 If `telegram_admins` is empty, the first person who sends `/start` to the bot becomes the first admin. Existing admins can add more admins:
 
@@ -36,7 +53,7 @@ The bot shows admin keyboard buttons:
 - `Показать ожидающие заявки` - sends every `UNPROCESSED` request as a separate message with a `Пометить как обработанную` button.
 - `Выгрузить таблицу заказов` - sends an Excel file with all requests from the `leads` table.
 
-## Run locally with Maven
+## Local Development
 
 PostgreSQL must be running and available through the datasource settings in `application.properties`.
 
