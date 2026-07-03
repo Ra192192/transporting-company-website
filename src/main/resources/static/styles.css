@@ -401,8 +401,7 @@ h3 {
 
 .section,
 .workflow,
-.callback,
-.footer {
+.callback {
   padding: clamp(54px, 7vw, 90px) clamp(18px, 5vw, 72px);
 }
 
@@ -432,8 +431,7 @@ h3 {
 
 .service-card p,
 .workflow-copy p,
-.callback-info p,
-.footer p {
+.callback-info p {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -492,6 +490,29 @@ h3 {
   font-weight: 900;
 }
 
+.phone-with-messengers {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.callback-messenger-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+}
+
+.callback-messenger-link img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .contact-form {
   display: grid;
   gap: 16px;
@@ -536,29 +557,6 @@ textarea {
 
 .form-status.error {
   color: var(--red);
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  color: var(--white);
-  background: #0f0f0f;
-}
-
-.footer p {
-  max-width: 600px;
-  color: #d8d8d8;
-}
-
-.footer-phones {
-  display: grid;
-  gap: 8px;
-  align-content: start;
-  color: var(--gold);
-  font-size: 24px;
-  font-weight: 900;
-  white-space: nowrap;
 }
 
 @media (max-width: 900px) {
@@ -633,11 +631,18 @@ textarea {
     display: none;
   }
 
-  .footer {
-    display: grid;
+  .phone-with-messengers {
+    gap: 9px;
   }
 
-  .footer-phones {
-    font-size: 22px;
+  .callback-messenger-link {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  .callback-messenger-link img {
+    width: 28px;
+    height: 28px;
   }
 }
