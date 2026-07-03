@@ -51,16 +51,13 @@ a {
   min-width: 194px;
 }
 
-.brand-badge {
-  display: grid;
-  place-items: center;
+.brand-logo {
+  display: block;
   width: 42px;
   height: 42px;
-  color: var(--white);
-  background: var(--red);
-  border-radius: 6px;
-  font-weight: 900;
-  font-size: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(20, 20, 20, .12);
 }
 
 .brand strong,
