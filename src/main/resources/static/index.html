@@ -1,28 +1,32 @@
 ﻿<!doctype html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Вывоз хлама, мусора и грузоперевозки 24/7</title>
-  <meta name="description" content="Вывоз хлама, мусора, утилизация бытовой техники, грузоперевозки, доставка, чистка гаражей и выкуп старых авто.">
+  <title>Вивіз мотлоху, сміття та вантажоперевезення 24/7</title>
+  <meta name="description" content="Вивіз мотлоху, сміття, утилізація побутової техніки, вантажоперевезення, доставка, чистка гаражів і викуп старих авто.">
   <link rel="icon" type="image/png" href="/assets/site-main-logo.png">
   <link rel="apple-touch-icon" href="/assets/site-main-logo.png">
-  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/styles.css?v=6">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="На главную">
+    <a class="brand" href="#home" aria-label="На головну" data-i18n-aria="brandAria">
       <img class="brand-logo" src="/assets/site-main-logo.png" width="42" height="42" alt="CCD 24/7">
       <span>
-        <strong>Вывоз хлама</strong>
-        <small>Быстро и надежно</small>
+        <strong data-i18n="brandTitle">Вивіз мотлоху</strong>
+        <small data-i18n="brandSubtitle">Швидко та надійно</small>
       </span>
     </a>
-    <nav aria-label="Навигация">
-      <a href="#services">Услуги</a>
-      <a href="#workflow">Как работаем</a>
-      <a href="#contacts">Контакты</a>
+    <nav aria-label="Навігація" data-i18n-aria="navAria">
+      <a href="#services" data-i18n="navServices">Послуги</a>
+      <a href="#workflow" data-i18n="navWorkflow">Як працюємо</a>
+      <a href="#contacts" data-i18n="navContacts">Контакти</a>
     </nav>
+    <div class="language-switch" aria-label="Вибір мови" data-i18n-aria="languageAria">
+      <button class="language-button active" type="button" data-lang="uk">UA</button>
+      <button class="language-button" type="button" data-lang="ru">RU</button>
+    </div>
     <div class="header-contact">
       <a class="messenger-link" href="viber://chat?number=%2B380688019996" aria-label="Написать в Viber">
         <img src="/assets/viber-logo.png" alt="">
@@ -37,83 +41,83 @@
   <main id="home">
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow">Работаем 24/7</p>
-        <h1>Вывоз мусора, хлама и техники без лишней суеты</h1>
-        <p class="lead">Заберем старую бытовую технику, мебель, строймусор, вторсырье или автохлам. Приедем быстро, аккуратно погрузим и освободим место.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Працюємо 24/7</p>
+        <h1 data-i18n="heroTitle">Вивіз сміття, мотлоху та техніки без зайвої метушні</h1>
+        <p class="lead" data-i18n="heroLead">Заберемо стару побутову техніку, меблі, будівельне сміття, вторсировину або автохлам. Приїдемо швидко, акуратно завантажимо та звільнимо місце.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="tel:+380688019996">Позвонить сейчас</a>
-          <a class="button button-ghost" href="#callback">Оставить заявку</a>
+          <a class="button button-primary" href="tel:+380688019996" data-i18n="callNow">Подзвонити зараз</a>
+          <a class="button button-ghost" href="#callback" data-i18n="leaveRequest">Залишити заявку</a>
         </div>
-        <div class="phone-strip" aria-label="Телефоны">
+        <div class="phone-strip" aria-label="Телефони" data-i18n-aria="phonesAria">
           <a href="tel:+380688019996">068-801-99-96</a>
           <a href="tel:+380998019996">099-801-99-96</a>
         </div>
       </div>
 
-      <div class="hero-card hero-card-image" aria-label="Визитка с услугами вывоза хлама">
-        <img src="/assets/card-red.jpg?v=2" alt="Вывоз хлама, услуги и телефоны">
+      <div class="hero-card hero-card-image" aria-label="Візитка з послугами вивозу мотлоху" data-i18n-aria="heroImageAria">
+        <img src="/assets/card-red.jpg?v=2" alt="Вивіз мотлоху, послуги та телефони" data-i18n-alt="heroImageAlt">
       </div>
     </section>
 
     <section id="services" class="section">
       <div class="section-title">
-        <p class="eyebrow">Услуги</p>
-        <h2>Что можно заказать</h2>
+        <p class="eyebrow" data-i18n="servicesEyebrow">Послуги</p>
+        <h2 data-i18n="servicesTitle">Що можна замовити</h2>
       </div>
       <div class="services-grid">
         <article class="service-card">
           <span>01</span>
-          <h3>Утилизация бытовой техники</h3>
-          <p>Холодильники, плиты, стиральные машины и другая крупная техника.</p>
+          <h3 data-i18n="service1Title">Утилізація побутової техніки</h3>
+          <p data-i18n="service1Text">Холодильники, плити, пральні машини та інша велика техніка.</p>
         </article>
         <article class="service-card">
           <span>02</span>
-          <h3>Вывоз мусора</h3>
-          <p>После ремонта, уборки, переезда, чистки квартиры, дома или двора.</p>
+          <h3 data-i18n="service2Title">Вивіз сміття</h3>
+          <p data-i18n="service2Text">Після ремонту, прибирання, переїзду, чистки квартири, будинку або двору.</p>
         </article>
         <article class="service-card">
           <span>03</span>
-          <h3>Грузоперевозки</h3>
-          <p>Перевозка вещей, мебели, техники и материалов по городу и области.</p>
+          <h3 data-i18n="service3Title">Вантажоперевезення</h3>
+          <p data-i18n="service3Text">Перевезення речей, меблів, техніки та матеріалів містом і областю.</p>
         </article>
         <article class="service-card">
           <span>04</span>
-          <h3>Доставка</h3>
-          <p>Забрать, привезти, поднять и помочь с погрузкой по договоренности.</p>
+          <h3 data-i18n="service4Title">Доставка</h3>
+          <p data-i18n="service4Text">Забрати, привезти, підняти та допомогти з завантаженням за домовленістю.</p>
         </article>
         <article class="service-card">
           <span>05</span>
-          <h3>Чистка гаражей</h3>
-          <p>Освободим гараж, подвал, кладовую или склад от старых вещей.</p>
+          <h3 data-i18n="service5Title">Чистка гаражів</h3>
+          <p data-i18n="service5Text">Звільнимо гараж, підвал, комору або склад від старих речей.</p>
         </article>
         <article class="service-card">
           <span>06</span>
-          <h3>Выкуп старых авто</h3>
-          <p>Оценка, договоренность и вывоз старого автомобиля или металлолома.</p>
+          <h3 data-i18n="service6Title">Викуп старих авто</h3>
+          <p data-i18n="service6Text">Оцінка, домовленість і вивіз старого автомобіля або металобрухту.</p>
         </article>
       </div>
     </section>
 
     <section id="workflow" class="workflow">
       <div class="workflow-copy">
-        <p class="eyebrow">Расчет</p>
-        <h2>Цена зависит от объема и условий</h2>
-        <p>Стоимость лучше уточнить по телефону: важны объем, вес, этаж, расстояние до машины, адрес и количество грузчиков. Можно описать задачу в форме, а потом отправить фото в мессенджер.</p>
+        <p class="eyebrow" data-i18n="workflowEyebrow">Розрахунок</p>
+        <h2 data-i18n="workflowTitle">Ціна залежить від обсягу та умов</h2>
+        <p data-i18n="workflowText">Вартість краще уточнити телефоном: важливі обсяг, вага, поверх, відстань до машини, адреса та кількість вантажників. Можна описати задачу у формі, а потім надіслати фото в месенджер.</p>
       </div>
       <div class="steps">
-        <div><strong>1</strong><span>Звонок или заявка</span></div>
-        <div><strong>2</strong><span>Уточнение объема и адреса</span></div>
-        <div><strong>3</strong><span>Согласование цены и времени</span></div>
-        <div><strong>4</strong><span>Погрузка и вывоз</span></div>
+        <div><strong>1</strong><span data-i18n="step1">Дзвінок або заявка</span></div>
+        <div><strong>2</strong><span data-i18n="step2">Уточнення обсягу та адреси</span></div>
+        <div><strong>3</strong><span data-i18n="step3">Узгодження ціни та часу</span></div>
+        <div><strong>4</strong><span data-i18n="step4">Завантаження та вивіз</span></div>
       </div>
     </section>
 
 
     <section id="callback" class="callback">
       <div class="callback-info">
-        <p class="eyebrow">Заявка</p>
-        <h2>Нужно вывезти сегодня?</h2>
-        <p>Оставьте контакты, и мастер перезвонит. Сейчас форма принимает заявку в backend и пишет ее в лог приложения.</p>
+        <p class="eyebrow" data-i18n="callbackEyebrow">Заявка</p>
+        <h2 data-i18n="callbackTitle">Потрібно вивезти сьогодні?</h2>
+        <p data-i18n="callbackText">Залиште контакти, і майстер передзвонить. Форма прийме заявку та збереже її для обробки.</p>
         <div class="big-phones">
           <a href="tel:+380688019996">068-801-99-96</a>
           <a href="tel:+380998019996">099-801-99-96</a>
@@ -121,18 +125,18 @@
       </div>
       <form id="contactForm" class="contact-form">
         <label>
-          Имя
-          <input name="name" autocomplete="name" maxlength="80" required placeholder="Ваше имя">
+          <span data-i18n="nameLabel">Ім'я</span>
+          <input name="name" autocomplete="name" maxlength="80" required placeholder="Ваше ім'я" data-i18n-placeholder="namePlaceholder">
         </label>
         <label>
-          Телефон
+          <span data-i18n="phoneLabel">Телефон</span>
           <input name="phone" autocomplete="tel" required placeholder="068-801-99-96">
         </label>
         <label>
-          Что нужно вывезти
-          <textarea name="message" maxlength="600" placeholder="Например: холодильник, диван и 10 мешков после ремонта"></textarea>
+          <span data-i18n="messageLabel">Що потрібно вивезти</span>
+          <textarea name="message" maxlength="600" placeholder="Наприклад: холодильник, диван і 10 мішків після ремонту" data-i18n-placeholder="messagePlaceholder"></textarea>
         </label>
-        <button class="button button-primary" type="submit">Отправить заявку</button>
+        <button class="button button-primary" type="submit" data-i18n="submitButton">Надіслати заявку</button>
         <p id="formStatus" class="form-status" role="status"></p>
       </form>
     </section>
@@ -140,8 +144,8 @@
 
   <footer id="contacts" class="footer">
     <div>
-      <strong>Вывоз хлама</strong>
-      <p>Утилизация техники, вывоз мусора, грузоперевозки, доставка, чистка гаражей, выкуп старых авто и скупка вторсырья.</p>
+      <strong data-i18n="footerTitle">Вивіз мотлоху</strong>
+      <p data-i18n="footerText">Утилізація техніки, вивіз сміття, вантажоперевезення, доставка, чистка гаражів, викуп старих авто та скупка вторсировини.</p>
     </div>
     <div class="footer-phones">
       <a href="tel:+380688019996">068-801-99-96</a>
@@ -149,6 +153,6 @@
     </div>
   </footer>
 
-  <script src="/script.js"></script>
+  <script src="/script.js?v=3"></script>
 </body>
 </html>
