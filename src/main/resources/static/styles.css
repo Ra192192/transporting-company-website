@@ -185,12 +185,14 @@ h3 {
   min-height: 520px;
   padding: clamp(22px, 4vw, 34px);
   color: var(--white);
-  background:
-    radial-gradient(circle at 82% 16%, rgba(215, 166, 76, .8), transparent 20%),
-    linear-gradient(150deg, #111 0%, #24201b 56%, #8f1119 100%);
+  background: var(--white) url("/assets/card-red.jpg") center / contain no-repeat;
   border-radius: 8px;
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+
+.hero-card > * {
+  display: none;
 }
 
 .hero-card-header {
@@ -341,7 +343,6 @@ h3 {
 
 .section,
 .workflow,
-.cards-section,
 .callback,
 .footer {
   padding: clamp(54px, 7vw, 90px) clamp(18px, 5vw, 72px);
@@ -415,27 +416,6 @@ h3 {
   color: var(--black);
   background: var(--gold);
   border-radius: 50%;
-}
-
-.cards-section {
-  background: #f2eee8;
-}
-
-.cards-preview {
-  display: grid;
-  grid-template-columns: minmax(0, .78fr) minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-}
-
-.cards-preview img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(20, 20, 20, .12);
 }
 
 .callback {
@@ -554,9 +534,6 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .cards-preview {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 620px) {
