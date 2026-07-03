@@ -81,6 +81,28 @@ nav {
   font-weight: 800;
 }
 
+.header-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.messenger-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.messenger-link img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .top-phone {
   color: var(--red);
   font-weight: 900;
@@ -545,7 +567,7 @@ textarea {
 }
 
 @media (max-width: 620px) {
-  .top-phone {
+  .header-contact {
     display: none;
   }
 
