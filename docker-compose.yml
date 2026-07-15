@@ -32,7 +32,7 @@ services:
     environment:
       POSTGRES_DB: cleanup_site
       POSTGRES_USER: cleanup_user
-      POSTGRES_PASSWORD: cleanup_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
     volumes:
       - cleanup-postgres-data:/var/lib/postgresql/data
     healthcheck:
@@ -49,7 +49,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cleanup_site
       SPRING_DATASOURCE_USERNAME: cleanup_user
-      SPRING_DATASOURCE_PASSWORD: cleanup_password
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
       VIRTUAL_HOST: ${DOMAIN:-clear-city-dnipro.com,www.clear-city-dnipro.com}
       VIRTUAL_PORT: 8090
       LETSENCRYPT_HOST: ${DOMAIN:-clear-city-dnipro.com,www.clear-city-dnipro.com}
@@ -67,7 +67,7 @@ services:
         condition: service_started
     environment:
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?Set TELEGRAM_BOT_TOKEN in .env}
-      DATABASE_URL: postgresql://cleanup_user:cleanup_password@postgres:5432/cleanup_site
+      DATABASE_URL: postgresql://cleanup_user:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/cleanup_site
       POLL_INTERVAL_SECONDS: 5
     restart: unless-stopped
 
