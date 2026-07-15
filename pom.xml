@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.friend.cleanup</groupId>
+    <groupId>com.app</groupId>
     <artifactId>cleanup-site</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>cleanup-site</name>

@@ -1,4 +1,4 @@
-package com.friend.cleanup;
+package com.app.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

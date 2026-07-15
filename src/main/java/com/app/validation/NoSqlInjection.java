@@ -1,4 +1,4 @@
-package com.friend.cleanup;
+package com.app.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.RECORD_COMPONENT})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NoSqlInjection {
-    String message() default "Поле содержит недопустимые символы или SQL-команду";
+    String message() default "Field contains invalid characters or SQL command";
 
     Class<?>[] groups() default {};
 

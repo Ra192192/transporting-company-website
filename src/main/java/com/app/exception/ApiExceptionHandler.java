@@ -1,4 +1,4 @@
-package com.friend.cleanup;
+package com.app.exception;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class ApiExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of(
                 "status", "error",
-                "message", "Проверьте данные в форме.",
+                "message", "Check form data.",
                 "fieldErrors", fieldErrors
         ));
     }

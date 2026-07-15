@@ -1,4 +1,4 @@
-package com.friend.cleanup;
+package com.app.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

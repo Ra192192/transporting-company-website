@@ -1,4 +1,4 @@
-package com.friend.cleanup;
+package com.app.model;
 
 public enum LeadStatus {
     UNPROCESSED,

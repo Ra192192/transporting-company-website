@@ -1,5 +1,8 @@
-package com.friend.cleanup;
+package com.app.controller;
 
+import com.app.dto.ContactRequest;
+import com.app.model.Lead;
+import com.app.repository.LeadRepository;
 import jakarta.validation.Valid;
 import java.util.Map;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +31,7 @@ public class ContactController {
         return ResponseEntity.ok(Map.of(
                 "status", "ok",
                 "id", lead.getId().toString(),
-                "message", "Заявка принята. Скоро вам перезвонят."
+                "message", "Lead accepted."
         ));
     }
 }
